@@ -1,0 +1,20 @@
+<h1>Posts</h1>
+
+<div>
+  <input class="title" placeholder="title.."  #newtitle/>
+  <input class="text" placeholder="text.." #newtext/>
+
+  <button (click)="Add(newtitle.value,newtext.value)">Add</button>
+
+</div>
+
+<ul *ngIf="posts">
+  <li *ngFor="let post of posts  | paginate: config">
+    <p class="title">{{ post.title }}</p>
+    <p class="body">{{ post.body }}</p>
+    <p class="remove" (click)=Remove(post)>remove</p> 
+  </li>
+</ul>
+
+<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+

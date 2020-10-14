@@ -1,0 +1,13 @@
+
+  <h1>Gallery</h1>
+
+
+  <ul *ngIf="gallery">
+    <li [style.background-image]="'url('+g.url+')'" *ngFor="let g of gallery  | paginate: config">
+      <p class="title">{{ g.title }}</p>
+    </li>
+  </ul>
+
+  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+
+
